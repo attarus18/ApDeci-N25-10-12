@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Non Preoccuparti ci</title>
+    <title>DECIDO IO</title>
     <style>
         :root {
             --colore-principale: #000000; /* Nero */
@@ -19,59 +19,31 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
             background-color: var(--colore-sfondo);
             color: var(--colore-principale);
             text-align: center;
-            padding-top: 50px; /* Spazio per il titolo */
+            padding: 20px;
         }
 
-        h1 {
-            font-size: 2.5em;
-            color: var(--colore-accento);
-            margin-bottom: 50px;
+        /* STILE TITOLO CON OMBREGGIATURA (NUOVA LABEL) */
+        #main-title {
+            font-size: 2.2em;
+            color: var(--colore-principale);
             font-weight: bold;
+            padding: 10px 20px;
+            margin-bottom: 40px;
+            /* Ombreggiatura sul testo */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+            border-radius: 8px;
         }
 
-        /* STILE PULSANTE TONDO E CENTRALE */
-        .generate-button {
-            /* Dimensione fissa per renderlo tondo */
-            width: 200px; 
-            height: 200px;
-            
-            background-color: var(--colore-accento);
-            color: var(--colore-testo);
-            
-            /* Rende tondo */
-            border-radius: 50%;
-            border: 5px solid var(--colore-principale);
-            
-            /* Centro il testo su due righe */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            
-            font-size: 2em;
-            font-weight: 900;
-            cursor: pointer;
-            
-            /* Ombra accattivante */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.5);
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-bottom: 50px;
-        }
-
-        .generate-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        /* STILE LABEL CON OMBRA E SFONDO NERO */
+        /* STILE LABEL DECISIONE CON OMBRA E SFONDO NERO */
         #decision-label {
-            width: 80%;
-            max-width: 400px;
-            padding: 30px 20px;
+            width: 90%;
+            max-width: 450px;
+            padding: 40px 20px;
             min-height: 50px;
             
             background-color: var(--colore-principale);
@@ -82,26 +54,58 @@
             align-items: center;
             justify-content: center;
             
-            font-size: 1.4em;
+            font-size: 1.6em;
             font-weight: 500;
             
             /* Ombra accattivante */
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
             transition: all 0.5s ease-in-out;
+            margin-bottom: 40px; /* Spazio prima del pulsante */
+        }
+
+        /* STILE PULSANTE TONDO E CENTRALE */
+        .generate-button {
+            width: 180px; 
+            height: 180px;
+            
+            background-color: var(--colore-accento);
+            color: var(--colore-testo);
+            
+            border-radius: 50%;
+            border: 4px solid var(--colore-principale);
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            font-size: 1.6em;
+            line-height: 1.1; /* Compatta il testo su due righe */
+            font-weight: 900;
+            cursor: pointer;
+            
+            /* Ombra accattivante */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .generate-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
         }
     </style>
 </head>
 <body>
 
-    <h1>Non Preoccuparti ci Penso IO</h1>
-
-    <button class="generate-button" id="generate-button">
-        DECIDO<br>IO
-    </button>
+    <label id="main-title">NON PREOCCUPARTI</label>
 
     <label id="decision-label">
         Premi DECIDO IO<br>per la tua risposta
     </label>
+
+    <button class="generate-button" id="generate-button">
+        DECIDO<br>IO
+    </button>
 
     <script src="frasi.js"></script>
     <script src="script.js"></script>
