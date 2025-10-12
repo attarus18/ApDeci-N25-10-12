@@ -3,104 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generatore di Decisioni</title>
+    <title>Non Preoccuparti ci Penso IO</title>
     <style>
+        :root {
+            --colore-principale: #000000; /* Nero */
+            --colore-accento: #DC3545; /* Rosso */
+            --colore-testo: #FFFFFF; /* Bianco */
+            --colore-sfondo: #F4F4F4;
+        }
+
         body {
-            font-family: sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
             min-height: 100vh;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        header {
-            width: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background-color: var(--colore-sfondo);
+            color: var(--colore-principale);
+            text-align: center;
+            padding-top: 50px; /* Spazio per il titolo */
         }
 
         h1 {
-            font-size: 1.5em;
-            color: #007bff;
-            flex-grow: 1; /* Il titolo occupa lo spazio rimanente */
-            text-align: center;
+            font-size: 2.5em;
+            color: var(--colore-accento);
+            margin-bottom: 50px;
+            font-weight: bold;
         }
 
-        .reset-button {
-            background: none;
-            border: none;
-            color: #dc3545;
-            font-size: 1em;
-            cursor: pointer;
-            padding: 5px 10px;
-        }
-
-        .content {
-            flex-grow: 1;
+        /* STILE PULSANTE TONDO E CENTRALE */
+        .generate-button {
+            /* Dimensione fissa per renderlo tondo */
+            width: 200px; 
+            height: 200px;
+            
+            background-color: var(--colore-accento);
+            color: var(--colore-testo);
+            
+            /* Rende tondo */
+            border-radius: 50%;
+            border: 5px solid var(--colore-principale);
+            
+            /* Centro il testo su due righe */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        #decision-label {
-            margin-bottom: 20px;
-            padding: 20px;
-            min-height: 100px;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            transition: all 0.5s ease-in-out;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .generate-button {
-            width: 80%;
-            padding: 15px 30px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2em;
+            
+            font-size: 2em;
+            font-weight: 900;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s;
-            margin-bottom: 30px; /* Posizionato in basso */
+            
+            /* Ombra accattivante */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 50px;
         }
 
         .generate-button:hover {
-            background-color: #0056b3;
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* STILE LABEL CON OMBRA E SFONDO NERO */
+        #decision-label {
+            width: 80%;
+            max-width: 400px;
+            padding: 30px 20px;
+            min-height: 50px;
+            
+            background-color: var(--colore-principale);
+            color: var(--colore-testo);
+            
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            font-size: 1.4em;
+            font-weight: 500;
+            
+            /* Ombra accattivante */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s ease-in-out;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div style="width: 50px;"></div> <h1>Generatore di Decisioni</h1>
-        <button class="reset-button" onclick="resetDecision()">Reset</button>
-    </header>
+    <h1>Non Preoccuparti ci Penso IO</h1>
 
-    <div class="content">
-        <label id="decision-label">Premi DECIDO per la tua risposta</label>
-    </div>
+    <button class="generate-button" id="generate-button">
+        DECIDO<br>IO
+    </button>
 
-    <button class="generate-button" onclick="generateDecision()">DECIDO</button>
+    <label id="decision-label">
+        Premi DECIDO IO<br>per la tua risposta
+    </label>
 
     <script src="frasi.js"></script>
     <script src="script.js"></script>
