@@ -6,11 +6,9 @@
     <title>DECIDO IO</title>
     <style>
         :root {
-            --colore-sfondo-scuro: #08457E; /* Nuovo sfondo scuro */
             --colore-principale: #000000; /* Nero (usato per bordi/ombre) */
             --colore-accento: #DC3545; /* Rosso */
             --colore-testo-chiaro: #FFFFFF; /* Bianco */
-            --colore-testo-scuro: #121212; /* Scuro per i dettagli */
         }
 
         body {
@@ -23,38 +21,41 @@
             justify-content: center;
             min-height: 100vh;
             
-            /* SFONDO SCURO */
-            background-color: var(--colore-sfondo-scuro); 
+            /* SFONDO CON IMMAGINE */
+            background-image: url('sfondo.png'); /* Assicurati che il percorso sia corretto */
+            background-size: cover; /* Copre l'intera area senza ripetersi */
+            background-position: center; /* Centra l'immagine */
+            background-repeat: no-repeat; /* Evita la ripetizione */
+            background-attachment: fixed; /* L'immagine rimane fissa durante lo scroll */
             
             color: var(--colore-testo-chiaro); /* Testo di default chiaro */
             text-align: center;
             padding: 20px;
+            box-sizing: border-box; /* Assicura che padding non influenzi la larghezza totale */
         }
 
-        /* STILE TITOLO (NUOVA LABEL) - ORA BIANCA */
+        /* STILE TITOLO (LABEL) */
         #main-title {
             font-size: 2.2em;
-            
-            /* COLORE BIANCO */
             color: var(--colore-testo-chiaro); 
-            
             font-weight: bold;
             padding: 10px 20px;
             margin-bottom: 40px;
-            /* Ombreggiatura sul testo per farlo risaltare */
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); 
             border-radius: 8px;
+            /* Per assicurare leggibilità su sfondi complessi */
+            background-color: rgba(0, 0, 0, 0.3); /* Leggero overlay scuro */
+            backdrop-filter: blur(3px); /* Effetto sfocatura per leggibilità */
         }
 
-        /* STILE LABEL DECISIONE CON SFONDO NERO */
+        /* STILE LABEL DECISIONE */
         #decision-label {
             width: 90%;
             max-width: 450px;
             padding: 40px 20px;
             min-height: 50px;
             
-            /* Sfondo label leggermente più scuro o nero assoluto per contrasto */
-            background-color: var(--colore-principale); 
+            background-color: var(--colore-principale); /* Sfondo nero per contrasto */
             color: var(--colore-testo-chiaro);
             
             border-radius: 12px;
@@ -65,11 +66,13 @@
             font-size: 1.6em;
             font-weight: 500;
             
-            /* Ombra accattivante */
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
             transition: all 0.5s ease-in-out;
             margin-bottom: 40px; 
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Lieve bordo chiaro */
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            
+            /* Per rendere responsive il font-size */
+            word-wrap: break-word; /* Rompe le parole lunghe se necessario */
         }
 
         /* STILE PULSANTE TONDO */
@@ -81,7 +84,6 @@
             color: var(--colore-testo-chiaro);
             
             border-radius: 50%;
-            /* Bordo più chiaro per contrasto con lo sfondo scuro */
             border: 4px solid var(--colore-testo-chiaro); 
             
             display: flex;
@@ -94,14 +96,59 @@
             font-weight: 900;
             cursor: pointer;
             
-            /* Ombra accattivante */
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.9), inset 0 0 10px rgba(255, 255, 255, 0.4);
             transition: transform 0.2s, box-shadow 0.2s;
+            
+            /* Rendi il pulsante responsive con min/max width/height */
+            max-width: 90%; /* Limita la larghezza massima su schermi piccoli */
+            max-height: 90%; /* Limita l'altezza massima su schermi piccoli */
         }
 
         .generate-button:hover {
             transform: scale(1.05);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        /* MEDIA QUERIES per la responsività */
+        @media (max-width: 600px) {
+            #main-title {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+
+            #decision-label {
+                font-size: 1.2em;
+                padding: 30px 15px;
+                margin-bottom: 30px;
+            }
+
+            .generate-button {
+                width: 150px;
+                height: 150px;
+                font-size: 1.3em;
+                border-width: 3px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #main-title {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+
+            #decision-label {
+                font-size: 1em;
+                padding: 25px 10px;
+                min-height: 40px;
+                margin-bottom: 20px;
+            }
+
+            .generate-button {
+                width: 130px;
+                height: 130px;
+                font-size: 1.1em;
+                border-width: 2px;
+            }
         }
     </style>
 </head>
