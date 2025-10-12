@@ -1,7 +1,7 @@
 // script.js
 
 const decisionLabel = document.getElementById('decision-label');
-const generateButton = document.querySelector('.generate-button');
+const generateButton = document.getElementById('generate-button');
 // decisionPhrases è definito in frasi.js
 
 /**
@@ -10,7 +10,7 @@ const generateButton = document.querySelector('.generate-button');
 function generateDecision() {
     // 1. Disabilita il pulsante durante l'animazione
     generateButton.disabled = true;
-    generateButton.textContent = "Sto decidendo...";
+    generateButton.innerHTML = "LANCIO...<br>⏳"; // Testo aggiornato durante il caricamento
 
     // 2. Animazione "Shuffling" (opzionale, ma migliora l'esperienza)
     let shuffleCount = 0;
@@ -22,8 +22,11 @@ function generateDecision() {
             // Mostra una frase casuale temporanea
             const tempIndex = Math.floor(Math.random() * decisionPhrases.length);
             decisionLabel.textContent = decisionPhrases[tempIndex];
-            // Piccola animazione di colore
-            decisionLabel.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 90%)`;
+            
+            // Animazione colore label - passa velocemente da un nero all'altro
+            const shade = 20 - Math.floor(Math.random() * 20); // Variazione di un nero quasi totale
+            decisionLabel.style.backgroundColor = `rgb(${shade}, ${shade}, ${shade})`;
+            
             shuffleCount++;
         } else {
             clearInterval(shuffle);
@@ -34,29 +37,19 @@ function generateDecision() {
 
             // 4. Mostra la decisione finale e resetta lo stile
             decisionLabel.textContent = finalDecision;
-            decisionLabel.style.backgroundColor = 'white'; // Colore neutro
+            decisionLabel.style.backgroundColor = 'var(--colore-principale)'; // Nero finale
 
             // 5. Riabilita il pulsante
             generateButton.disabled = false;
-            generateButton.textContent = "DECIDO";
-            
+            generateButton.innerHTML = "DECIDO<br>IO"; // Testo finale
+
             // Logica per inserire qui la visualizzazione di un annuncio Interstitial di AdMob/AdSense
-            // Nel contesto di una web app, questo punto è ideale per mostrare una pubblicità.
             console.log("Decisione generata. Punto ideale per mostrare un annuncio Interstitial.");
         }
     }, shuffleInterval);
 }
 
-/**
- * Resetta l'etichetta allo stato iniziale.
- */
-function resetDecision() {
-    decisionLabel.textContent = "Premi DECIDO per la tua risposta";
-    decisionLabel.style.backgroundColor = 'white';
-    console.log("Decisione resettata.");
-}
-
-// Inizializzazione: Assicura che il pulsante sia collegato al suo click handler
+// Inizializzazione: Collega la funzione al pulsante
 document.addEventListener('DOMContentLoaded', () => {
     generateButton.addEventListener('click', generateDecision);
 });
