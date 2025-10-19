@@ -1,7 +1,7 @@
 // activityIdeas.js
 // 100 idee per attività ludiche e sociali (17-25 anni)
 
-const activityIdeas = [
+const decisionPhrases = [
     // 🍔 Cibo & Bevande (Food & Social)
     "Andiamo a mangiare sushi 'All You Can Eat'?",
     "Serata pizza e birra artigianale.",
